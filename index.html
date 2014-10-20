@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>score</title>
+	<meta name="viewport" content = "width = device-width, initial-scale = 1, maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="lib/jquery.mobile-1.4.4.css">
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src = "lib/jquery.mobile-1.4.4.min.js"></script>
+	<script src="js/json_read.js"></script>
+</head>
+
+<body>
+	<div data-role="page" id = "top">
+		<div data-role = "content">
+			<h1> SDVX_Rival_Tool</h1>
+			<a href="#home" id = "start" data-role = "button">score</a>
+			<a href="#setting" data-role = "button" data-icon = "gear" data-iconpos = "left">setting</a>
+		</div>
+	</div>
+
+	<div data-role="page" id = "home">
+
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<a href="#setting" class="ui-btn-left" data-icon = "gear" data-theme="a" data-rel="dialog" data-transition="slideup">Setting</a>
+			<h1 class = "title">SDVX_RIVALS</h1>
+		</div>
+
+		<div data-role="content">
+			<ul data-role="listview" data-inset = "true" data-theme = "a" data-filter = "true" id = "tracks" data-filter-placeholder = "Select track">
+			</ul>
+		</div>
+
+	</div>
+
+	<div data-role="page" id = "score">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1 id ="trackname"></h1>
+		</div>
+		<div data-role = "content">
+			<div id = "playerscore"></div>
+			<a href = "#home" data-role="button" data-icon="back" data-iconpos= "right">戻る</a>
+		</div>
+	</div>
+
+	<div data-role="page" id = "setting">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<a href="#top" data-transition = "flip">戻る</a>
+			<h1>Setting</h1>
+		</div>
+		<div data-role = "content">
+			<a href = "#" data-role = "button" data-icon = "star" data-iconpos = "left" id = "listset">
+				listset
+			</a>
+		</div>
+	</div>
+
+</body>
+</html>
