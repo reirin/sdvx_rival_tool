@@ -16,14 +16,21 @@
 		<div data-role = "content">
 			<h1> SDVX_Rival_Tool</h1>
 			<a href="#home" id = "start" data-role = "button">score</a>
-			<a href="#setting" data-role = "button" data-icon = "gear" data-iconpos = "left">setting</a>
+			<a href="#top" data-role = "button" data-icon = "gear" data-iconpos = "left">setting</a>
 		</div>
 	</div>
 
 	<div data-role="page" id = "home">
-
+		<div data-role="popup" id = "score" data-overlay-theme = "b" data-dismissible = "true" style = "width:350px;">
+			<div data-role="header" data-theme="b">
+				<h1 id ="trackname"></h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<div id = "playerscore"></div>
+				<a href = "#" data-rel = "back" data-role="button" data-icon="back" data-iconpos= "right">戻る</a>
+			</div>
+		</div>
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<a href="#setting" class="ui-btn-left" data-icon = "gear" data-theme="a" data-rel="dialog" data-transition="slideup">Setting</a>
 			<h1 class = "title">SDVX_RIVALS</h1>
 		</div>
 
@@ -31,22 +38,11 @@
 			<ul data-role="listview" data-inset = "true" data-theme = "a" data-filter = "true" id = "tracks" data-filter-placeholder = "Select track">
 			</ul>
 		</div>
-
-	</div>
-
-	<div data-role="page" id = "score">
-		<div data-role="header" data-position="fixed" data-theme="b">
-			<h1 id ="trackname"></h1>
-		</div>
-		<div data-role = "content">
-			<div id = "playerscore"></div>
-			<a href = "#home" data-role="button" data-icon="back" data-iconpos= "right">戻る</a>
-		</div>
 	</div>
 
 	<div data-role="page" id = "setting">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<a href="#top" data-transition = "flip">戻る</a>
+			<a href="#top" data-rel = "back" data-transition = "flip">戻る</a>
 			<h1>Setting</h1>
 		</div>
 		<div data-role = "content">

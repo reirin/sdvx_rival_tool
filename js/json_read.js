@@ -1,10 +1,11 @@
 $(function () {
 	$("#start").click(function(){
+		console.log("スタートがおされたよ");
 		makeList();
 	});
 
 	$("#listset").click(function(){
-		console.log("押されてるよ");
+		console.log("押されたよ");
 	});
 });
 
@@ -13,18 +14,17 @@ function makeList() {
 		var mydatafile = "http://sdvx-s.coresv.com/user/reirin.json?callback=?";
 		var testdatafile = "testjson.json";
 
-		$.getJSON(testdatafile,function(data){
+		$.getJSON(mydatafile,function(data){
 			myfile = data;
 			console.log(myfile);
 			var len = data.profile.tracks.length,
-			sid = "#score",
 				// dia = "dialog",
 				//" data-rel = "+dia+
 				$tid = $("#tracks");
 
 				for (var i = 0; i < len; i++) {
 					$tid.prepend(
-						"<li id = "+ i +"><a href = "+ sid +">" + data.profile.tracks[i].title + "</a></li>");
+						"<li id = "+ i +"><a href = \"#score\" data-rel = \"popup\" data-transition = \"pop\" class = \"ui-btn ui-corner-all ui-btn-icon -left ui-icon-check\">" + data.profile.tracks[i].title + "</a></li>");
 				}
 				$tid.listview("refresh");
 				scoreDisp(data);
