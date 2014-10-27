@@ -12,16 +12,18 @@
 </head>
 
 <body>
+<!-- topPage -->
 	<div data-role="page" id = "top">
 		<div data-role = "content">
 			<h1> SDVX_Rival_Tool</h1>
 			<a href="#home" id = "start" data-role = "button">score</a>
-			<a href="#top" data-role = "button" data-icon = "gear" data-iconpos = "left">setting</a>
+			<a href="#setting" data-role = "button" data-icon = "gear" data-iconpos = "left">setting</a>
 		</div>
 	</div>
-
+<!-- mainPage -->
+	<!-- scoreView -->
 	<div data-role="page" id = "home">
-		<div data-role="popup" id = "score" data-overlay-theme = "b" data-dismissible = "true" style = "width:350px;">
+		<div data-role="popup" id = "score" data-overlay-theme = "b" data-dismissible = "true" data-position-to = "window" data-tolerance = "10,15,10,15" style = "width:300px;">
 			<div data-role="header" data-theme="b">
 				<h1 id ="trackname"></h1>
 			</div>
@@ -30,24 +32,28 @@
 				<a href = "#" data-rel = "back" data-role="button" data-icon="back" data-iconpos= "right">戻る</a>
 			</div>
 		</div>
+		<!-- listView -->
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1 class = "title">SDVX_RIVALS</h1>
 		</div>
-
 		<div data-role="content">
-			<ul data-role="listview" data-inset = "true" data-theme = "a" data-filter = "true" id = "tracks" data-filter-placeholder = "Select track">
+			<ul data-role="listview" data-inset = "true" data-theme = "a" data-filter = "true" data-input ="#keywd" id = "tracks" data-filter-placeholder = "Select track">
 			</ul>
 		</div>
 	</div>
 
+<!-- settingPage -->
 	<div data-role="page" id = "setting">
 		<div data-role="header" data-position="fixed" data-theme="b">
-			<a href="#top" data-rel = "back" data-transition = "flip">戻る</a>
+			<a href="#" data-rel = "back" data-transition = "flip">戻る</a>
 			<h1>Setting</h1>
 		</div>
 		<div data-role = "content">
 			<a href = "#" data-role = "button" data-icon = "star" data-iconpos = "left" id = "listset">
 				listset
+			</a>
+			<a href = "#" data-role = "button" data-icon = "star" data-iconpos = "left" id = "testset">
+				test
 			</a>
 		</div>
 	</div>

@@ -5,3 +5,10 @@ li.tempdisp {
 h1{
 	text-align: center;
 }
+
+/* テキストを省略せずに表示する */ 
+.ui-header .ui-title /* ヘッダー */
+{
+	overflow: visible;
+	white-space: normal;
+}

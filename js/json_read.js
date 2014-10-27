@@ -9,12 +9,14 @@ $(function () {
 		// makeList();
 	});
 
-	$("#listset").click(makeList);
+	$("#listset").click(makeList(mydatafile));
+
+	$("#testset").click(makeList(testdatafile));
 });
 
-function makeList() {
+function makeList(file) {
 
-		$.getJSON(mydatafile,function(data){
+		$.getJSON(file,function(data){
 			console.log(data);
 			var len = data.profile.tracks.length,
 				// dia = "dialog",

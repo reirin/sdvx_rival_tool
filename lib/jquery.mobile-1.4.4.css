@@ -1474,12 +1474,14 @@ div.ui-mobile-viewport {
 	min-height: 1.1em;
 	text-align: center;
 	display: block;
-	margin: 0;
+	margin: 0 30%;
 	padding: .7em 0;
 	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+	/*overflow: hidden;*/
+	/*white-space: nowrap;*/
 	outline: 0 !important;
+	overflow: visible;
+	white-space: normal;
 }
 .ui-footer .ui-title {
 	margin: 0 1em;
@@ -3445,7 +3447,7 @@ fieldset.ui-controlgroup {
 	max-height: 100%;
 	outline: 0;
 	-webkit-border-radius: inherit;
-	border-radius: inherit;	
+	border-radius: inherit;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	cursor: pointer;
@@ -3529,7 +3531,7 @@ fieldset.ui-controlgroup {
 .ui-selectmenu .ui-selectmenu-list {
 	margin: 0;
 	-webkit-border-radius: inherit;
-	border-radius: inherit;	
+	border-radius: inherit;
 }
 .ui-header:not(.ui-screen-hidden) + .ui-selectmenu-list {
 	-webkit-border-top-right-radius: 0;
@@ -3647,15 +3649,15 @@ fieldset.ui-controlgroup {
 }
 .ui-listview > li.ui-first-child img:first-child:not(.ui-li-icon) {
 	-webkit-border-top-left-radius: inherit;
-	border-top-left-radius: inherit;	
+	border-top-left-radius: inherit;
 }
 .ui-listview > li.ui-last-child img:first-child:not(.ui-li-icon) {
 	-webkit-border-bottom-left-radius: inherit;
-	border-bottom-left-radius: inherit;	
+	border-bottom-left-radius: inherit;
 }
 .ui-collapsible-content > .ui-listview:not(.ui-listview-inset) {
 	-webkit-border-radius: inherit;
-	border-radius: inherit;	
+	border-radius: inherit;
 }
 .ui-listview > .ui-li-static {
 	padding: .7em 1em;
