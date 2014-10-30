@@ -1,4 +1,3 @@
-
 var mydatafile = "http://sdvx-s.coresv.com/user/reirin.json?callback=?";
 var rivaldatafile = "http://sdvx-s.coresv.com/user/tunedoc.json?callback=?";
 var rivaldatafile2 = "http://sdvx-s.coresv.com/user/sample.json?callback=?";
@@ -9,14 +8,14 @@ $(function () {
 		// makeList();
 	});
 
-	$("#listset").click(makeList(mydatafile));
+	$("#listset").click(makeList);
 
-	$("#testset").click(makeList(testdatafile));
+	// $("#test").click(test);
 });
 
-function makeList(file) {
+function makeList() {
 
-		$.getJSON(file,function(data){
+		$.getJSON(testdatafile,function(data){
 			console.log(data);
 			var len = data.profile.tracks.length,
 				// dia = "dialog",
@@ -37,11 +36,39 @@ function makeList(file) {
 						esc = 0;
 					}
 					$tid.prepend(
-						"<li id = "+ i +"><a href = \"#score\" data-rel = \"popup\" data-transition = \"pop\" class = \"ui-btn ui-corner-all ui-btn-icon -left ui-icon-check\">" + data.profile.tracks[i].title + "<br> exhaust : "+esc+"</a></li>");
+						"<li id = "+ i +"><a href = \"#score\" data-rel = \"popup\" data-transition = \"pop\" class = \"ui-btn ui-corner-all ui-btn-icon -left ui-icon-check\">" + data.profile.tracks[i].title + "<br> exhaust : "+ esc +"</a></li>");
 				}
 				// $tid.listview("refresh");
-				scoreDisp(data);
+				rivalDisp(data);
 			});
+	}
+
+	function rivalDisp(userdata){
+		var tid = 0;
+		var playername = [];
+		var score = [];
+		$("li").click(function() {
+			$("#rival").text("");
+			tid = $(this).attr("id");
+			$("#trackname").text(userdata.profile.tracks[tid].title);
+			console.log(tid);
+			$.getJSON(rivaldatafile,function(rivaldata){
+				console.log(rivaldata.profile.name);
+				if(rivaldata.profile.tracks[tid].exhaust.highscore < userdata.profile.tracks[tid].exhaust.highscore){
+					playername[0] = userdata.profile.name;
+					score[0] = userdata.profile.tracks[tid].exhaust.highscore;
+					playername[1] = rivaldata.profile.name;
+					score[1] = rivaldata.profile.tracks[tid].exhaust.highscore;
+				}else{
+					playername[0] = rivaldata.profile.name;
+					score[0] = rivaldata.profile.tracks[tid].exhaust.highscore;
+					playername[1] = userdata.profile.name;
+					score[1] = userdata.profile.tracks[tid].exhaust.highscore;
+				}
+				$("#rival").append("<p><ol><li>"+playername[0]+":"+score[0]+"</li><li>"+playername[1]+":"+score[1]+"</li></ol></p>");
+			})
+
+		});
 	}
 
 	function scoreDisp(data){
