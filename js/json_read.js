@@ -1,21 +1,48 @@
-var mydatafile = "http://sdvx-s.coresv.com/user/reirin.json?callback=?";
-var rivaldatafile = "http://sdvx-s.coresv.com/user/tunedoc.json?callback=?";
 var rivaldatafile2 = "http://sdvx-s.coresv.com/user/sample.json?callback=?";
 var testdatafile = "testjson.json";
 
+var username = "";
+var rivalname = "";
+
 $(function () {
 	$("#start").click(function(){
+
 		// makeList();
 	});
 
+	$("#settingButton").click(noscrollEvent);
+
 	$("#listset").click(makeList);
 
+	$(".scroll").click(scrollEvent);
 	// $("#test").click(test);
 });
 
-function makeList() {
 
-		$.getJSON(testdatafile,function(data){
+function scrollEvent(){
+	document.getElementById("noscroll").style.outline = "";
+	document.getElementById("noscroll").style.overflow = "";
+}
+
+function noscrollEvent(){
+	document.getElementById("noscroll").style.outline = "none";
+	document.getElementById("noscroll").style.overflow = "hidden";
+}
+
+function onButtonClick() {
+	username = document.getElementById("user").value;
+	console.log(username);
+    }
+
+function onrivalButtonClick(){
+	rivalname = document.getElementById("rivalname").value;
+	console.log(rivalname);
+}
+
+function makeList() {
+	var mydatafile = "http://sdvx-s.coresv.com/user/" + username + ".json?callback=?";
+
+		$.getJSON(mydatafile,function(data){
 			console.log(data);
 			var len = data.profile.tracks.length,
 				// dia = "dialog",
@@ -47,11 +74,13 @@ function makeList() {
 		var tid = 0;
 		var playername = [];
 		var score = [];
+		var rivaldatafile = "http://sdvx-s.coresv.com/user/" + rivalname + ".json?callback=?";
 		$("li").click(function() {
+			noscrollEvent();
 			$("#rival").text("");
 			tid = $(this).attr("id");
-			$("#trackname").text(userdata.profile.tracks[tid].title);
 			console.log(tid);
+			$("#trackname").text(userdata.profile.tracks[tid].title);
 			$.getJSON(rivaldatafile,function(rivaldata){
 				console.log(rivaldata.profile.name);
 				if(rivaldata.profile.tracks[tid].exhaust.highscore < userdata.profile.tracks[tid].exhaust.highscore){
@@ -120,7 +149,7 @@ function makeList() {
 	});
 }
 
-function rerode () {
+function rerode() {
 	// body...
 	$("home").trigger("creat");
 }
