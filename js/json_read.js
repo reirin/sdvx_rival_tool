@@ -5,25 +5,21 @@ var username = "";
 var rivalname = "";
 
 $(function () {
-	$("#start").click(function(){
-
-		// makeList();
-	});
-
-	$("#settingButton").click(noscrollEvent);
-
+//曲リストを作成する。
 	$("#listset").click(makeList);
-
+//通常画面でスクロールできるようにする。
 	$(".scroll").click(scrollEvent);
+//ダイアログ表示時（スコア表示時）に画面をスクロールできないように固定する。
+	$("#settingButton").click(noscrollEvent);
 	// $("#test").click(test);
 });
 
-
+//曲名表示時スクロールできるようにする。
 function scrollEvent(){
 	document.getElementById("noscroll").style.outline = "";
 	document.getElementById("noscroll").style.overflow = "";
 }
-
+//ダイアログ表示（スコア表示時）にがめんをスクロールできないように固定する。
 function noscrollEvent(){
 	document.getElementById("noscroll").style.outline = "none";
 	document.getElementById("noscroll").style.overflow = "hidden";
@@ -53,15 +49,12 @@ function makeList() {
 					var nsc = data.profile.tracks[i].novice.highscore;
 					var asc = data.profile.tracks[i].advanced.highscore;
 					var esc = data.profile.tracks[i].exhaust.highscore;
-					if (nsc == undefined){
+					if (nsc == undefined)
 						nsc = 0;
-					}
-					if (asc == undefined){
+					if (asc == undefined)
 						asc = 0;
-					}
-					if (esc == undefined){
+					if (esc == undefined)
 						esc = 0;
-					}
 					$tid.prepend(
 						"<li id = "+ i +"><a href = \"#score\" data-rel = \"popup\" data-transition = \"pop\" class = \"ui-btn ui-corner-all ui-btn-icon -left ui-icon-check\">" + data.profile.tracks[i].title + "<br> exhaust : "+ esc +"</a></li>");
 				}
